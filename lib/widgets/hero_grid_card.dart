@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/hero_model.dart';
+import 'hero_image.dart';
 
 class HeroGridCard extends StatelessWidget {
   final HeroModel hero;
@@ -35,22 +36,7 @@ class HeroGridCard extends StatelessWidget {
               flex: 5,
               child: Container(
                 color: const Color(0xFFEFEBE9),
-                child: Image.asset(
-                  hero.imagePath,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Center(
-                      child: Text(
-                        '[ Foto Pahlawan ]',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Georgia',
-                          color: Color(0xFF3E2723),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                child: HeroImage(path: hero.imagePath),
               ),
             ),
             const Divider(height: 2, thickness: 2, color: Color(0xFF3E2723)),
